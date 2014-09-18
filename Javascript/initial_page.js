@@ -56,15 +56,15 @@ move_values = function(uom, style_item, quality, from_value, to_value, step, tol
   } else if (from_value > to_value) {
     from_value = from_value - step;
   }
-  if (to_value - from_value < tolerance && to_value - from_value > -1 * tolerance) {
-    clearInterval(update_values);
-  }
   return setElementQuality(uom, style_item, quality, from_value);
 };
 
 move_values_init = function(uom, fps, style_item, quality, from_value, to_value, step, tolerance) {
-  var update_values;
-  return setInterval(update_values = function() {
+  var update_values, thisInterval;
+  return thisInterval = setInterval(update_values = function() {
+    if (to_value - from_value < tolerance && to_value - from_value > -1 * tolerance) {
+      clearInterval(thisInterval);
+    }
     return from_value = move_values(uom, style_item, quality, from_value, to_value, step, tolerance);
   }, fps);
 };
@@ -170,7 +170,6 @@ entering = function() {
   set_element_quality("px", 0, "logo_line", "margin-top", 39);
   set_element_quality("", 0, "logo_image", "opacity", 0);
   set_element_quality("", 0, "logo_line", "opacity", 0);
-  set_element_quality("", 0, "header_tab", "opacity", 0);
   set_element_quality("", 0, "footer_menu", "opacity", 0);
   set_element_quality("", 0, "current_page_tab", "opacity", 0);
   set_element_quality("", 0, "profile_image", "opacity", 0);
@@ -178,7 +177,6 @@ entering = function() {
   set_element_quality("", 0, "menu_home", "opacity", 0);
   value_to("", 500, 10, "logo_image", "opacity", 0, 0.6, 0.005);
   value_to("", 500, 10, "logo_line", "opacity", 0, 1, 0.01);
-  value_to("", 1500, 10, "header_tab", "opacity", 0, 1, 0.005);
   value_ellittic_to("down", "%", 4000, 10, "logo_background", "height", 95, 10, 0.01, 0.001, 5, 80);
   value_ellittic_to("up", "%", 4000, 10, "logo_line", "top", 50, 100, 0.01, 0.001, 5, 80);
   value_ellittic_to("down", "px", 4000, 10, "logo_line", "margin-top", 39, -2, 0.03, 0.001, 20, 40);

@@ -56,15 +56,15 @@ move_values = function(uom, style_item, quality, from_value, to_value, step, tol
   } else if (from_value > to_value) {
     from_value = from_value - step;
   }
-  if (to_value - from_value < tolerance && to_value - from_value > -1 * tolerance) {
-    clearInterval(update_values);
-  }
   return setElementQuality(uom, style_item, quality, from_value);
 };
 
 move_values_init = function(uom, fps, style_item, quality, from_value, to_value, step, tolerance) {
-  var update_values;
-  return setInterval(update_values = function() {
+  var update_values, thisInterval;
+  return thisInterval = setInterval(update_values = function() {
+    if (to_value - from_value < tolerance && to_value - from_value > -1 * tolerance) {
+      clearInterval(thisInterval);
+    }
     return from_value = move_values(uom, style_item, quality, from_value, to_value, step, tolerance);
   }, fps);
 };
@@ -119,6 +119,9 @@ ellittic_motion = function(direction, uom, fps, style_item, quality, from_value,
   focus_two = distance / focus_center * (focus_center - 1);
   focus_two = from_value + focus_two;
   return setInterval(update_values = function() {
+    if (to_value - from_value < tolerance && to_value - from_value > -1 * tolerance) {
+      clearInterval(thisInterval);
+    }
     speed_increase = detect_ellittic_speed(speed_increase, from_value, focus_one, focus_two, rescaling);
     return from_value = move_ellittic(direction, uom, style_item, quality, from_value, to_value, step, speed_increase);
   }, fps);
@@ -170,7 +173,6 @@ entering = function() {
   set_element_quality("px", 0, "logo_line", "margin-top", 39);
   set_element_quality("", 0, "logo_image", "opacity", 0);
   set_element_quality("", 0, "logo_line", "opacity", 0);
-  set_element_quality("", 0, "header_tab", "opacity", 0);
   set_element_quality("", 0, "footer_menu", "opacity", 0);
   set_element_quality("", 0, "current_page_tab", "opacity", 0);
   set_element_quality("", 0, "profile_image", "opacity", 0);
@@ -178,7 +180,6 @@ entering = function() {
   set_element_quality("", 0, "menu_home", "opacity", 0);
   value_to("", 500, 10, "logo_image", "opacity", 0, 0.6, 0.005);
   value_to("", 500, 10, "logo_line", "opacity", 0, 1, 0.01);
-  value_to("", 1500, 10, "header_tab", "opacity", 0, 1, 0.005);
   value_ellittic_to("down", "%", 4000, 10, "logo_background", "height", 95, 10, 0.01, 0.001, 5, 80);
   value_ellittic_to("up", "%", 4000, 10, "logo_line", "top", 50, 100, 0.01, 0.001, 5, 80);
   value_ellittic_to("down", "px", 4000, 10, "logo_line", "margin-top", 39, -2, 0.03, 0.001, 20, 40);
@@ -268,7 +269,7 @@ var posTables = function(num_cycles, initial_top, initial_left) {
       tbl_top_position[current_id % num_posts_per_line] = initial_top;
     }
     mp_original_style = tbl.getAttribute("style");
-    tbl.setAttribute("style", "position: absolute; width: 23%; top:" + current_top + "px; left:" + current_left + "%; font-size: 0.9em; border-collapse: collapse; font-family: Impact, Charcoal, sans-serif; text-align: center; color: #333; font-weight: bold; background-color: #ddd; word-wrap:break-word");
+    tbl.setAttribute("style", "position: absolute; width: 23%; top:" + current_top + "px; left:" + current_left + "%; font-size: 0.9em; border-collapse: collapse; font-family: Impact, Charcoal, sans-serif; text-align: center; color: #333; font-weight: bold; background-color: #ddd;");
     current_left = current_left + post_distance;
     if (current_left > maximum_width) { 
       current_left = initial_left;
@@ -317,16 +318,16 @@ shrink_post = function(elem, id_number) {
   elem.setAttribute("style", mp_original_style);
   mp_title = "micropost_title" + id_number;
   mp_descr = "micropost_descr" + id_number;
-  document.getElementById(mp_title).setAttribute("style", "padding: 10px; font-size: 100%; word-wrap:break-word");
-  document.getElementById(mp_descr).setAttribute("style", "padding: 10px; font-size: 80%; text-align: left; word-wrap:break-word");
+  document.getElementById(mp_title).setAttribute("style", "padding: 10px; font-size: 100%;");
+  document.getElementById(mp_descr).setAttribute("style", "padding: 10px; font-size: 80%; text-align: left;");
   post_open = false;
 };
 
 title_over = function(elem, id_number) {
   var mp_descr, gray_grad = 221, new_style;
   mp_descr = "micropost_descr" + id_number;
-  document.getElementById(mp_descr).setAttribute("style", "padding: 12px; font-size: 90%; text-align: left; word-wrap:break-word");
-  elem.setAttribute("style", "padding: 12px; font-size: 110%; word-wrap:break-word");
+  document.getElementById(mp_descr).setAttribute("style", "padding: 12px; font-size: 90%; text-align: left;");
+  elem.setAttribute("style", "padding: 12px; font-size: 110%;");
   title_fadeIn = 
     setInterval( function() {
       new_style = "padding: 12px; font-size: 110%; background-color: rgb(" + gray_grad + "," + gray_grad + ","  + gray_grad + ")";

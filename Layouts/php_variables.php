@@ -1,7 +1,7 @@
 <?php
 
 $root_descr = "Luca Danieli Official Website And Portfolio";
-$root_page = "http://www.lucadanieli.com/Luca_Danieli_Html_Backup/";
+$root_page = "http://www.lucadanieli.com/";
 
 //$root_page = "";
 
