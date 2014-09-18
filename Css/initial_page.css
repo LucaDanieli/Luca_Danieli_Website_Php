@@ -1,0 +1,387 @@
+/* Place all the styles related to the InitialPage controller here.
+They will automatically be included in application.css.
+You can use Sass (SCSS) here: http://sass-lang.com/
+
+$color_background: #D1DBC5;
+$color_logo_background: #302501;
+$color_header: #E8E0BD;
+
+$colorViola: #a68d93;
+$colorBluVerde: #083D32;
+$colorGiallo: #7C630F;
+$colorWhite: #fff;
+
+$colorFooter_Hover: #10223D;
+
+// Colors not used yet
+$colorE: #0C4663;
+$colorG: #A6AB92;
+$colorH: #D1DBC5;
+*/
+
+
+body {
+  background-color: #D1DBC5;
+}
+
+h1 {
+  color: #E8E0BD;
+}
+
+#outer_table {
+  position: absolute; 
+  width: 100%; 
+  height: 100%; 
+  top: 0px; 
+  left: 0px; 
+  min-width: 800px; 
+  min-height: 500px;
+}
+
+#logo_background {
+  position: absolute;
+  background-color: #302501;
+  top: 0px;
+  left: 0px;
+  height: 10%;
+  width: 100%;
+}
+
+#logo_line {
+  position: relative;
+  background-color: #E8E0BD;
+  height: 1px;
+  top: 100%;
+  margin-top: -2px;
+  opacity: 1;
+  font-size: 2.5em;
+}
+
+#logo_image_div {
+  opacity: 0.6;
+  position: absolute;
+  bottom: -8px;
+  width: 100%;
+}
+
+#logo_image {
+  width: 80%;
+}
+
+#header_tab {
+  position: relative;
+  top: -48px;
+  width: 100%;
+  opacity: 1;
+}
+
+#logo_name {
+  position: absolute;
+  font-family: Impact, Charcoal, sans-serif;
+  top: -46px;
+  right: 15%;
+  text-align: right;
+  line-height: 0.1;
+}
+
+#official_name { 
+    text-transform: uppercase;
+    font-size: 100%;
+    letter-spacing: -2px;
+  }
+
+#official_website {
+    color: #fff;
+    font-size: 55%;
+    letter-spacing: 1px;
+  }
+
+#current_page_tab {
+  position: absolute;
+  top: -25px;
+  font-family: Impact, Charcoal, sans-serif;
+  left: 10%;
+  text-align: left;
+  line-height: 0.1;
+  opacity: 1;
+  font-size: 40%;
+}
+
+#current_page_name {
+  color: #E8E0BD;
+  font-size: 1.0em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#current_page_bar_link {
+  font-family: Impact, Charcoal, sans-serif;
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.4;
+}
+
+#current_page_bar_link:hover {
+    opacity: 1;
+    color: #E8E0BD;
+    font-size: 1.1em;
+  }
+
+.footer {
+  position: absolute;
+  top: 94%;
+  left: 0px;
+  background-color: #7C630F;
+  width: 100%;
+  height: 6%;  
+}
+
+#footer_line {
+  position: relative;
+  background-color: #E8E0BD;
+  height: 1px;
+  top: 1px;
+}
+
+#footer_menu {
+  position: relative;
+  left: 0px;
+  font-family: Impact, Charcoal, sans-serif;
+  opacity: 1;  
+}
+
+#footer_link {
+  text-decoration: none;
+  color: #E8E0BD;
+  font-size: 100%;
+}
+
+#footer_link:hover {
+  color: #fff;
+}
+
+#footer_list {
+  position: relative;
+  top: -6px;
+  left: 50%;
+  margin-left: -94px;
+  float: left;
+  list-style: none;
+  font-size: 0.97em;
+}
+
+#footer_list_item {
+  float: left;
+  margin-right: 10px;
+}
+
+#background_canvas {
+  position: absolute;
+  width: 100%;
+  height: 84%;
+  top: 10%;
+  left: 0px;
+}
+
+#canvas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#profile_image {
+  position: absolute;
+  width: 10%;
+  top: 15%;
+  left: 10%;
+  opacity: 0.9;
+  border:1px solid #d3d3d3;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+#central_menu {
+  position: absolute;
+  background-color: #fff;
+  top: 15%;
+  left: 23%;
+  width: 55%;
+  height: 74%;
+  opacity: 0.8;
+}
+
+#menu_home {
+  opacity: 1;
+  font-size: 1.0em;
+  line-height: 1.2;
+}
+
+#tab_music {
+  position: absolute;
+  top: 15%;
+  left: 48%;
+  width: 25%;
+  height: 30%;
+}
+
+#music_menu {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 23%;
+  left: 5%;
+  align: center;
+  text-align: left;
+}
+
+#line_music {
+  background-color: #a68d93;
+  width: 2px;
+  height: 85%;
+  position: absolute; 
+}
+
+#tab_writings {
+  position: absolute;
+  top: 42%;
+  left: 23%;
+  width: 55%;
+  height: 22%;  
+}
+
+#writings_menu {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 20%;
+  align: center;
+  text-align: center;
+}
+
+#line_writings {
+  background-color: #083D32;
+  width: 63%;
+  height: 2px;
+  position: absolute;
+  top: 28%;
+  opacity: 0.5;
+}
+
+#tab_works {
+  position: absolute;
+  top: 63%;
+  left: 23%;
+  width: 40%;
+  height: 26%;
+}
+
+#works_menu {
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  top: 0%;
+  left: 28%;
+  align: center;
+  text-align: right;
+}
+
+#line_works {
+  background-color: #7C630F;
+  width: 2px;
+  height: 88%;
+  position: absolute;
+  top: 12%;
+  left: 100%;
+  opacity: 0.6;
+}
+
+#menu_canvas_left {
+  position: relative;
+  width: 40%;
+  height: 40%;
+  top: 30%;
+  left: 10%;
+  opacity: 0.9;
+  /*border: 1px solid #999*/
+}
+
+#menu_canvas_left:hover {
+  opacity: 1;
+}
+
+#canvas_menu_left {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#menu_canvas_right {
+  position: absolute;
+  width: 40%;
+  height: 40%;
+  top: 30%;
+  left: 50%;
+  opacity: 0.9;
+  /*border: 1px solid #999*/
+}
+
+#menu_canvas_right:hover {
+  opacity: 1;
+}
+
+#canvas_menu_right {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#m_a_v_menu {
+  position: absolute;
+  width:30%;
+  height: 20%;
+  top: 40%;
+  left: 43%;
+  opacity: 0.6;
+  line-height: 0.2;
+  font-family: Impact, Charcoal, sans-serif;
+  font-size: 2em;
+  text-transform: uppercase;
+}
+
+#m_a_v_big_font_left {
+  color: rgb(100, 1, 1);
+  text-align: left;
+}
+
+#m_a_v_big_font_left {
+  color: rgb(1, 1, 50);
+  text-align: right;
+}
+
+#micropost {
+  position: absolute; 
+  width: 23%; 
+  font-size: 0.9em; 
+  border-collapse: collapse; 
+  font-family: Impact, Charcoal, sans-serif; 
+  text-align: center; 
+  color: #333; 
+  font-weight: bold; 
+  background-color: #ddd;
+}
+
+#micropost_title {
+  padding: 10px;
+  font-size: 100%;
+}
+
+#micropost_descr {
+  padding: 10px;
+  font-size: 80%;
+  text-align: left;
+}
+
+#prova {
+  height: 10px;
+}

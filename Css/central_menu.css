@@ -1,0 +1,35 @@
+#menu_big_font {
+  font-family: Impact, Charcoal, sans-serif;
+  opacity: 0.6;
+  font-size: 140%;
+  text-transform: uppercase;
+}
+
+#menu_link_big {
+  color: #000;
+  text-decoration: none;
+}
+
+#menu_link_big:hover {
+  color: #0C4663;
+}
+
+#menu_small_font {
+  font-family: Impact, Charcoal, sans-serif;
+  opacity: 0.5;
+  position: relative;
+  top: -14px;
+  font-size: 85%;
+  letter-spacing: -1px;
+} 
+
+#menu_link_small {
+  color: #000;
+  text-decoration: none;
+} 
+
+#menu_link_small:hover {
+  color: #0C4663;
+}
+
+

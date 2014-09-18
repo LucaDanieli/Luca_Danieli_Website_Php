@@ -1,0 +1,154 @@
+var setElementQuality;
+
+setElementQuality = function(uom, style_item, quality, from_value) {
+  if (quality === "opacity") {
+    document.getElementById(style_item).style.opacity = from_value;
+    return from_value;
+  } else if (quality === "height") {
+    document.getElementById(style_item).style.height = from_value.toString() + uom;
+    return from_value;
+  } else if (quality === "margin-top") {
+    document.getElementById(style_item).style.marginTop = from_value.toString() + uom;
+    return from_value;
+  } else if (quality === "top") {
+    document.getElementById(style_item).style.top = from_value.toString() + uom;
+    return from_value;
+  } else if (quality === "left") {
+    document.getElementById(style_item).style.left = from_value.toString() + uom;
+    return from_value;
+  } else if (quality === "width") {
+    document.getElementById(style_item).style.width = from_value.toString() + uom;
+    return from_value;
+  }
+};
+
+
+//
+
+
+var move_values, move_values_init, value_to;
+
+move_values = function(uom, style_item, quality, from_value, to_value, step, tolerance) {
+  if (from_value < to_value) {
+    from_value = from_value + step;
+  } else if (from_value > to_value) {
+    from_value = from_value - step;
+  }
+  if (to_value - from_value < tolerance && to_value - from_value > -1 * tolerance) {
+    clearInterval(update_values);
+  }
+  return setElementQuality(uom, style_item, quality, from_value);
+};
+
+move_values_init = function(uom, fps, style_item, quality, from_value, to_value, step, tolerance) {
+  var update_values;
+  return setInterval(update_values = function() {
+    return from_value = move_values(uom, style_item, quality, from_value, to_value, step, tolerance);
+  }, fps);
+};
+
+value_to = function(uom, time, fps, style_item, quality, from_value, to_value, step, tolerance) {
+  var update_values;
+  if (tolerance == null) {
+    tolerance = 0.001;
+  }
+  return setTimeout(update_values = function() {
+    var new_value;
+    return new_value = move_values_init(uom, fps, style_item, quality, from_value, to_value, step, tolerance);
+  }, time);
+};
+
+
+//
+
+
+var detect_ellittic_speed, ellittic_motion, move_ellittic, value_ellittic_to;
+
+detect_ellittic_speed = function(speed_increase, from_value, focus_one, focus_two, rescaling) {
+  var increase;
+  increase = focus_one + focus_two - 2 * from_value;
+  return speed_increase = speed_increase + increase / rescaling;
+};
+
+move_ellittic = function(direction, uom, style_item, quality, from_value, to_value, step, speed_increase) {
+  var speed;
+  if (direction === "up") {
+    if (from_value < to_value) {
+      speed = step;
+      step = step + speed * speed_increase;
+      from_value = from_value + step;
+      return setElementQuality(uom, style_item, quality, from_value);
+    }
+  } else if (direction === "down") {
+    if (from_value > to_value) {
+      speed = step;
+      step = step + speed * speed_increase;
+      from_value = from_value + step;
+      return setElementQuality(uom, style_item, quality, from_value);
+    }
+  }
+};
+
+ellittic_motion = function(direction, uom, fps, style_item, quality, from_value, to_value, step, speed_increase, focus_center, rescaling) {
+  var distance, focus_one, focus_two, update_values;
+  distance = to_value - from_value;
+  focus_one = distance / focus_center;
+  focus_one = from_value + focus_one;
+  focus_two = distance / focus_center * (focus_center - 1);
+  focus_two = from_value + focus_two;
+  return setInterval(update_values = function() {
+    speed_increase = detect_ellittic_speed(speed_increase, from_value, focus_one, focus_two, rescaling);
+    return from_value = move_ellittic(direction, uom, style_item, quality, from_value, to_value, step, speed_increase);
+  }, fps);
+};
+
+value_ellittic_to = function(direction, uom, time, fps, style_item, quality, from_value, to_value, step, speed_increase, focus_center, rescaling) {
+  var update_values;
+  return setTimeout(update_values = function() {
+    var new_value;
+    return new_value = ellittic_motion(direction, uom, fps, style_item, quality, from_value, to_value, step, speed_increase, focus_center, rescaling);
+  }, time);
+};
+
+
+//
+
+
+var set_element_quality;
+
+set_element_quality = function(uom, time, style_item, quality, value) {
+  var update_values;
+  return setTimeout(update_values = function() {
+    var new_value;
+    return new_value = setElementQuality(uom, style_item, quality, value);
+  }, time);
+};
+
+
+//
+
+
+
+// -------------
+
+
+entering = function() {
+  set_element_quality("%", 0, "logo_background", "height", 95);
+  set_element_quality("%", 0, "logo_line", "top", 50);
+  set_element_quality("px", 0, "logo_line", "margin-top", 39);
+  set_element_quality("", 0, "logo_image", "opacity", 0);
+  set_element_quality("", 0, "logo_line", "opacity", 0);
+  set_element_quality("", 0, "header_tab", "opacity", 0);
+  set_element_quality("", 0, "footer_menu", "opacity", 0);
+  set_element_quality("", 0, "current_page", "opacity", 0);
+  set_element_quality("", 0, "profile_image", "opacity", 0);
+  value_to("", 500, 10, "logo_image", "opacity", 0, 0.6, 0.005);
+  value_to("", 500, 10, "logo_line", "opacity", 0, 1, 0.01);
+  value_to("", 1500, 10, "header_tab", "opacity", 0, 1, 0.005);
+  value_ellittic_to("down", "%", 4000, 10, "logo_background", "height", 95, 10, 0.01, 0.001, 5, 80);
+  value_ellittic_to("up", "%", 4000, 10, "logo_line", "top", 50, 100, 0.01, 0.001, 5, 80);
+  value_ellittic_to("down", "px", 4000, 10, "logo_line", "margin-top", 39, -2, 0.03, 0.001, 20, 40);
+  value_to("", 5000, 10, "footer_menu", "opacity", 0, 1, 0.01);
+  value_to("", 5000, 10, "current_page", "opacity", 0, 1, 0.01);
+  return value_to("", 6000, 10, "profile_image", "opacity", 0, 0.9, 0.005);
+};

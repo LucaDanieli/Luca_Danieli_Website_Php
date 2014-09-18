@@ -1,0 +1,32 @@
+<header id="logo_background">
+  <div id="logo_line">
+    <div id="logo_image_div">
+      <img id="logo_image" src="<?php echo $top_folder ?>Images/Common/background.png">
+    </div>
+    <div id="logo_name"> 
+      <h1 id="official_name"> Luca Danieli </h1>
+      <p id="official_website"> Official Website </p>
+    </div>
+    <div id="current_page_tab">
+      <p id="current_page_name"> 
+        <?php 
+          $backward_links = explode(" | ", $current_page);
+          for ($i = 0; $i < count($backward_links)-1; $i++) {
+            if ($i < 1) {
+              if (!($backward_links[$i] == "")) {
+                echo "<a href='" . $top_folder . strtolower(str_replace(' ', '_', $backward_links[$i])) . ".php' id='current_page_bar_link'>" . strtoupper($backward_links[$i]) . "</a>" . " -> ";
+              } else {
+                echo "<p id='current_page_bar_link'>" . strtoupper($backward_links[$i]) . "</a>" . " -> ";
+              }
+            }
+            else {
+              $subfolder = explode("/", $current_folder);
+              echo "<a href='" . $top_folder . $subfolder[0] . "/" . strtolower(str_replace(' ', '_', $backward_links[$i])) . ".php' id='current_page_bar_link'>" . strtoupper($backward_links[$i]) . "</a>" . " -> ";
+            }
+          };
+          echo strtoupper(end($backward_links)) 
+        ?> 
+      </p>
+    </div>
+  </div>  
+</header>

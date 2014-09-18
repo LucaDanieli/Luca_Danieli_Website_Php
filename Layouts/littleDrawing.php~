@@ -1,0 +1,7 @@
+<div id="background_canvas">
+  <canvas id="canvas">  
+  <script>
+    littleDraw(200, 5000);
+  </script>
+</div>
+

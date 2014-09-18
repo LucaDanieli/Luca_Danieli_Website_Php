@@ -1,0 +1,16 @@
+<title><?php echo $current_page_name ?></title>
+<link rel="stylesheet" type="text/css" href="<?php echo $top_folder ?>Css/initial_page.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $top_folder ?>Css/central_menu.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $top_folder ?>Css/music_standard_page.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $top_folder ?>Css/video_standard_page.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $top_folder ?>Css/poems_standard_page.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $top_folder ?>Css/theatre_standard_page.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $top_folder ?>Css/websites_standard_page.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $top_folder ?>Css/websites_standard_page.css">
+<script type="text/JavaScript" src="<?php echo $top_folder ?>Javascript/initial_page.js"></script>
+<script type="text/JavaScript" src="<?php echo $top_folder ?>Javascript/drawing.js"></script>
+<script type="text/JavaScript" src="<?php echo $top_folder ?>Javascript/image_mouse_actions.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--<%= csrf_meta_tags %>-->
+<?php include($top_folder . "Layouts/shim.php"); ?>
+
