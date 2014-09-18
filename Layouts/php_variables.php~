@@ -425,7 +425,7 @@ I made this website when I was 19 years old. It is done mostly in Photoshop, usi
 
 $rpso_add = "
 <p id='description_music_standard_page' style='font-size: 100%;'>
-You can find the website <a href='https://github.com/LucaDanieli/Website_PHP' target='_blank' style='text-decoration: none; color: #bbb;'>here</a>.
+You can find the website <a href='http://www.lucadanieli.com/FUSDI/blackcherry/rpso/home.html' target='_blank' style='text-decoration: none; color: #bbb;'>here</a>.
 </p>
 ";
 

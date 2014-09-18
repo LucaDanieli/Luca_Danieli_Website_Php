@@ -376,7 +376,7 @@ I have tried to simulate herein part of Ruby's dynamic approach to web developme
 
 $luca_portfolio_add = "
 <p id='description_music_standard_page' style='font-size: 100%;'>
-You can find the project <a href='https://github.com/LucaDanieli/Website_PHP' target='_blank' style='text-decoration: none; color: #bbb;'>here</a> as GIT repository.
+You can find the project <a href='https://github.com/LucaDanieli/Luca_Danieli_Website_Php' target='_blank' style='text-decoration: none; color: #bbb;'>here</a> as GIT repository.
 </p>
 ";
 
