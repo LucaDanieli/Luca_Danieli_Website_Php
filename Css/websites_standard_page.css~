@@ -44,9 +44,15 @@
   line-height: 1;
   font-size: 85%;
   border-collapse: collapse;
-  
 }
 
+#websites_menu_table {
+  position: absolute;
+  width: 100%;
+  line-height: 1;
+  font-size: 85%;
+  border-collapse: collapse;
+}
 
 #websites_image_background {
   position: absolute;

@@ -11,8 +11,8 @@
     </div>
     <table id="theatre_image_background"><tr><td></td></tr></table>
     <table id="theatre_image">
-      <tr><td style="width: 100%; height: 1px; background-color: #ef5423;"></td></tr>
-      <tr><td id="image_section"> <?php echo $current_image ?> </td></tr>
+      <tr><td style="height: 1px; background-color: #ef5423;"></td></tr>
+      <tr><td id="theatre_image_section"> <?php echo $current_image ?> </td></tr>
     </table>
   </div>
 </div>

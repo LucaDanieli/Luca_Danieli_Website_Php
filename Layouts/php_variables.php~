@@ -1,7 +1,7 @@
 <?php
 
 $root_descr = "Luca Danieli Official Website And Portfolio";
-$root_page = "http://www.lucadanieli.com/Luca_Danieli_Html_Backup/";
+$root_page = "http://www.lucadanieli.com/";
 
 //$root_page = "";
 
@@ -53,7 +53,7 @@ $contact_description = "
 Ehi! <br><br>
 
 If you want to contact me, in case you were interested on anything, please use the email below. <br><br>
-Don't be scared of the notation: it is to prevent spam! You just have to replace the [] with appropriate symbols. <br><br>
+Don't be scared of the notation: it is to prevent spam! You just have to replace the [..] with appropriate symbols. <br><br>
 
 <b>dnllcu [at] gmail [dot] com</b>
 
@@ -98,8 +98,8 @@ $music_previews = array(
 );
 
 $silenzi_description = "
-<p id='description_music_standard_page'><i>Silenzi</i> (<i>Silence</i>) is a musical piece for singer, recital and electronics inspired by poem of the same name written by Marco Bragolusi.</p>
-<p id='description_music_standard_page'>It has been premiered at the Sonic Art Forum - experimental music and sound art conference - in Colchester (UK)  on 2-3 November 2013.</p>
+<p id='description_music_standard_page'><i>Silenzi</i> (<i>Silence</i>) is a musical piece for singer, recital and electronics inspired by the poem of the same name written by Marco Bragolusi.</p>
+<p id='description_music_standard_page'>It was premiered at the Sonic Art Forum - experimental music and sound art conference - in Colchester (UK)  on 2-3 November 2013.</p>
 ";
 $silenzi_add = "
 <p id='description_music_standard_page'>The work investigates the idea of embodiment, through a comparison between speech and sing.</p>
@@ -109,8 +109,8 @@ $silenzi_soundFile = ' <iframe width="100%" height="140" scrolling="no" framebor
 
 
 $dramma4_description = "
-<p id='description_music_standard_page'><i>Dramma in 4 parti</i> was original conceived as a live-videoart installation: the music herein is for real-time performance. <br></p>
-<p id='description_music_standard_page'>This work is a study on phonetic superimpositions as material for musical writing: syllables overlap continuously, creating hints for structure's expansion or contraction. </p>
+<p id='description_music_standard_page'><i>Dramma in 4 parti</i> was originally conceived as a live-videoart installation: the music herein is for real-time performance. <br></p>
+<p id='description_music_standard_page'>This work is a study on phonetic superimpositions as material for musical writing: syllables overlap continuously, creating hints for structure's expansions and contractions. </p>
 ";
 $dramma4_add = "
 <p id='description_music_standard_page'>The piece treats the problem of 'hidden' (or 'black') markets and it is written in four languages: English, Italian, Serbian and Rumanian.</p>
@@ -121,7 +121,7 @@ $dramma4_soundFile = ' <iframe width="100%" height="140" scrolling="no" framebor
 
 $studio2_description = "
 <p id='description_music_standard_page'><i>Studio secondo</i> is a composition for string ensemble, composed during my studies. The dedicated ensemble is made of one violin, two viols, two cellos and doublebass. <br></p>
-<p id='description_music_standard_page'> As thi was a personal study, I can say that the piece is stylistically lively and it approaches several harmonic techniques, moving from eighteenth century ones to the contemporary. </p>
+<p id='description_music_standard_page'> As this work was a personal study, I can say that the piece is stylistically lively and it approaches several harmonic techniques, moving from eighteenth century ones to the contemporary. </p>
 ";
 $studio2_add = "
 <p id='description_music_standard_page'>You can find the score <a href='" . $root_page . "Documents/luca_danieli_studio_secondo.pdf' target='_blank' style='text-decoration: none; color: #bbb;'>here</a>.</p>
@@ -291,7 +291,7 @@ $theatre_pages = array(
 );
 
 $agatodemone_description = "
-I have written the theatrical work <i>Agatodemone e il Cacodemone</i> when I was 21. Originally, it was conceived in three acts. The third one should be a twenty-minutes musical piece for Flute, Oboe, Tuba, Cello and Live-Electronics. Unfortunately, I have never had the time to conclude this work and therefore I leave it uncomplete. Maybe I will end it someday.<br>
+I wrote the theatrical work <i>Agatodemone e il Cacodemone</i> when I was 21. Originally, it was conceived in three acts. The third one should be a twenty-minutes musical piece for Flute, Oboe, Tuba, Cello and Live-Electronics. Unfortunately, I never had the time to conclude this work and therefore I leave it uncomplete. Maybe I will end it someday.<br>
 The prosody is representation of the emotional status of the two characters. The rhythm and the writing style are central and evolve during the play.
 </p>
 ";
@@ -302,12 +302,12 @@ You can download the *.pdf version <a href='" . $root_page . "Documents/agatodem
 </p>
 ";
 
-$agatodemone_image = ' <img style="position: absolute; width: 20%; top: 5%; left: 40%;" src="' . $root_page . 'Images/agatodemone_e_il_cacodemone.jpg "> ';
+$agatodemone_image = ' <img style="position: absolute; height: 90%; top: 5%; left: 38%;" src="' . $root_page . 'Images/agatodemone_e_il_cacodemone.jpg "> ';
 
 //-------------------------------------------------------CODES
 
-$codes_menu_top = 30;
-$codes_menu_left = 13;
+$codes_menu_top = 34;
+$codes_menu_left = 10;
 
 $codes_names = array(
   $codes = "Codes", 
@@ -352,8 +352,8 @@ $websites_descriptions = array(
 );
 
 
-$websites_menu_top = 30;
-$websites_menu_left = 13;
+$websites_menu_top = 32;
+$websites_menu_left = 10;
 
 $websites_pages = array(
   "",
@@ -370,7 +370,7 @@ $websites_previews = array(
 
 $luca_portfolio_description = "
 This website was originally done using Ruby on Rails. Unfortunately, my web hosting does not support Ruby applications, so I found myself to re-code the website in PHP. 
-I have tried to simulate herein part of Ruby's dynamic approach to web development, fragmenting the code in numerous little and re-usable scripts, which help debugging and the manteinance of the website.
+I tried then to simulate herein part of Ruby's dynamic approach to web development, by use of Content Management Systems, fragmenting the code in numerous little and re-usable scripts, which help debugging and the manteinance of the website.
 </p>
 ";
 
@@ -385,7 +385,7 @@ $luca_portfolio_image = '
 <table id="websites_image" style="top: 70% height: 30%">
   <tr><td style="width: 100%; height: 1px; background-color: #ef5423;"></td></tr>
   <tr><td id="websites_image_section"> 
-    <img style="position: absolute; width: 30%; top: 5%; left: 34%;" src="' . $root_page . 'Images/luca_danieli_website_preview.png "> 
+    <img style="position: absolute; height: 90%; top: 5%; left: 32%;" src="' . $root_page . 'Images/luca_danieli_website_preview.png "> 
   </td></tr>
 </table>  
 ';
@@ -411,7 +411,7 @@ $fusdi_image = '
 <table id="websites_image" style="top: 70% height: 30%">
   <tr><td style="width: 100%; height: 1px; background-color: #ef5423;"></td></tr>
   <tr><td id="websites_image_section"> 
-    <img style="position: absolute; width: 38%; top: 5%; left: 30%;" src="' . $root_page . 'Images/FUSDI_preview.jpg "> 
+    <img style="position: absolute; height: 90%; top: 5%; left: 28%;" src="' . $root_page . 'Images/FUSDI_preview.jpg "> 
   </td></tr>
 </table>  
 ';
@@ -434,7 +434,7 @@ $rpso_image = '
 <table id="websites_image" style="top: 70% height: 30%">
   <tr><td style="width: 100%; height: 1px; background-color: #ef5423;"></td></tr>
   <tr><td id="websites_image_section"> 
-    <img style="position: absolute; width: 34%; top: 5%; left: 32%;" src="' . $root_page . 'Images/RPSO_preview.jpg "> 
+    <img style="position: absolute; height: 90%; top: 5%; left: 30%;" src="' . $root_page . 'Images/RPSO_preview.jpg "> 
   </td></tr>
 </table>  
 ';

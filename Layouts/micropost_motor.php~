@@ -9,7 +9,7 @@
   </div>
 
   <div id="websites_standard_page_table" style="height: 100%; width: 100%;">
-    <div id="websites_menu_table" style="position: absolute; font-size: 0.8em; left: <?php echo $inner_menu_left ?>%; top: <?php echo $inner_menu_top ?>%;">
+    <div id="websites_menu_table" style="position: absolute; font-size: 0.7em; left: <?php echo $inner_menu_left ?>%; top: <?php echo $inner_menu_top ?>%;">
 
         <?php include($top_folder . "Layouts/micropost.php"); ?>
 

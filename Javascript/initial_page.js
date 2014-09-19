@@ -203,11 +203,29 @@ set_font_size = function(item, quality, original_value, uom, rad) {
     scaleFactor = Math.pow(500/originalHeight, 1/rad);
     newFontSize = Math.round(originalFontSize * scaleFactor * 100) / 100;
     set_element_quality(uom, 0, item, quality, newFontSize);
-  } else if (newHeight >= 400 && newHeight < 660) {
+  } else if (newHeight >= 500 && newHeight < 660) {
     scaleFactor = Math.pow(newHeight/originalHeight, 1/rad);
     newFontSize = Math.round(originalFontSize * scaleFactor * 100) / 100;
     set_element_quality(uom, 0, item, quality, newFontSize);
   } else if (newHeight >= 660) {
+    set_element_quality(uom, 0, item, quality, originalFontSize);
+  }
+};
+
+set_font_size_width = function(item, quality, original_value, uom, rad) {
+  var originalFontSize, originalHeight = 700, originalWidth = 1300, newFontSize, newHeight, scaleFactor, newWidth, screenRate;
+//  originalFontSize = get_element_quality(0, item, quality);
+  newWidth = window.innerWidth;
+  originalFontSize = original_value;
+  if (newWidth< 800) {
+    scaleFactor = Math.pow(800/originalWidth, 1/rad);
+    newFontSize = Math.round(originalFontSize * scaleFactor * 100) / 100;
+    set_element_quality(uom, 0, item, quality, newFontSize);
+  } else if (newWidth >= 800 && newWidth < 1200) {
+    scaleFactor = Math.pow(newWidth/originalWidth, 1/rad);
+    newFontSize = Math.round(originalFontSize * scaleFactor * 100) / 100;
+    set_element_quality(uom, 0, item, quality, newFontSize);
+  } else if (newWidth >= 1200) {
     set_element_quality(uom, 0, item, quality, originalFontSize);
   }
 };
@@ -239,7 +257,7 @@ var post_open = false;
 var title_over, descr_over, title_fadeIn;
 
 var posTables = function(num_cycles, initial_top, initial_left) {
-  var current_top = initial_top, current_left = initial_left, maximum_width = 70, post_distance = 25, tbl, num_posts_per_line, tbl_top_position = [], previous_id, tbl_top_anal, tbl_top_anal_height, column_height_array = [], max_height, new_top_offsets = [], original_post_css;
+  var current_top = initial_top, current_left = initial_left, maximum_width = 70, post_distance = 27, tbl, num_posts_per_line, tbl_top_position = [], previous_id, tbl_top_anal, tbl_top_anal_height, column_height_array = [], max_height, new_top_offsets = [], original_post_css;
 
   num_posts_per_line = Math.floor((maximum_width-initial_left)/post_distance) + 1;
   column_height_array = [0,0,0];
@@ -266,7 +284,7 @@ var posTables = function(num_cycles, initial_top, initial_left) {
       tbl_top_position[current_id % num_posts_per_line] = initial_top;
     }
     mp_original_style = tbl.getAttribute("style");
-    tbl.setAttribute("style", "position: absolute; width: 23%; top:" + current_top + "px; left:" + current_left + "%; font-size: 0.9em; border-collapse: collapse; font-family: Impact, Charcoal, sans-serif; text-align: center; color: #333; font-weight: bold; background-color: #ddd;");
+    tbl.setAttribute("style", "position: absolute; width: 25%; top:" + current_top + "px; left:" + current_left + "%; font-size: 100%; border-collapse: collapse; font-family: Impact, Charcoal, sans-serif; text-align: center; color: #333; font-weight: bold; background-color: #ddd;");
     current_left = current_left + post_distance;
     if (current_left > maximum_width) { 
       current_left = initial_left;
@@ -315,19 +333,19 @@ shrink_post = function(elem, id_number) {
   elem.setAttribute("style", mp_original_style);
   mp_title = "micropost_title" + id_number;
   mp_descr = "micropost_descr" + id_number;
-  document.getElementById(mp_title).setAttribute("style", "padding: 10px; font-size: 100%;");
-  document.getElementById(mp_descr).setAttribute("style", "padding: 10px; font-size: 80%; text-align: left;");
+  document.getElementById(mp_title).setAttribute("style", "padding-top: 8%; padding-bottom: 8%; padding-left: 8%; padding-right: 8%; font-size: 100%;");
+  document.getElementById(mp_descr).setAttribute("style", "padding-top: 8%; padding-bottom: 8%; padding-left: 8%; padding-right: 8%; font-size: 80%; text-align: left;");
   post_open = false;
 };
 
 title_over = function(elem, id_number) {
   var mp_descr, gray_grad = 221, new_style;
   mp_descr = "micropost_descr" + id_number;
-  document.getElementById(mp_descr).setAttribute("style", "padding: 12px; font-size: 90%; text-align: left;");
-  elem.setAttribute("style", "padding: 12px; font-size: 110%;");
+  document.getElementById(mp_descr).setAttribute("style", "padding-top: 8%; padding-bottom: 8%; padding-left: 8%; padding-right: 8%; font-size: 90%; text-align: left;");
+  elem.setAttribute("style", "padding-top: 8%; padding-bottom: 8%; padding-left: 8%; padding-right: 8%; font-size: 110%;");
   title_fadeIn = 
     setInterval( function() {
-      new_style = "padding: 12px; font-size: 110%; background-color: rgb(" + gray_grad + "," + gray_grad + ","  + gray_grad + ")";
+      new_style = "padding-top: 8%; padding-bottom: 8%; padding-left: 8%; padding-right: 8%; font-size: 110%; background-color: rgb(" + gray_grad + "," + gray_grad + ","  + gray_grad + ")";
       elem.setAttribute("style", new_style);
       gray_grad++;
       if (gray_grad > 238) {
@@ -339,6 +357,6 @@ title_over = function(elem, id_number) {
 descr_over = function(elem, id_number) {
   var mp_title;
   mp_title = "micropost_title" + id_number;
-  elem.setAttribute("style", "padding: 12px; font-size: 90%; text-align: left;")
-  document.getElementById(mp_title).setAttribute("style", "padding: 12px; font-size: 110%; background-color: rgb(221, 221, 221)");
+  elem.setAttribute("style", "padding-top: 8%; padding-bottom: 8%; padding-left: 8%; padding-right: 8%; font-size: 90%; text-align: left;")
+  document.getElementById(mp_title).setAttribute("style", "padding-top: 8%; padding-bottom: 8%; padding-left: 8%; padding-right: 8%; font-size: 110%; background-color: rgb(221, 221, 221)");
 };
